@@ -28,6 +28,10 @@ export let updateNodeStyle = function (object) {
   nodeEle.style.fontSize = object.style.fontSize + 'px'
   nodeEle.style.fontWeight = object.style.fontWeight || 'normal'
   this.linkDiv()
+  this.bus.fire('operation', {
+    name: 'updateStyle',
+    obj: nodeEle,
+  })
 }
 
 export let updateNodeTags = function (object) {
@@ -44,6 +48,10 @@ export let updateNodeTags = function (object) {
     nodeEle.appendChild(tagsContainer)
   }
   this.linkDiv()
+  this.bus.fire('operation', {
+    name: 'updateTag',
+    obj: nodeEle,
+  })
 }
 
 export let updateNodeIcons = function (object) {
@@ -67,6 +75,10 @@ export let updateNodeIcons = function (object) {
     }
   }
   this.linkDiv()
+  this.bus.fire('operation', {
+    name: 'updateIcons',
+    obj: nodeEle,
+  })
 }
 
 export let updateNodeSvgChart = function () {
